@@ -51,6 +51,23 @@
             .p {
                 margin: 1rem 2rem;
                 padding: 1rem;
+                transition: 0.3s;
+            }
+
+            .success-message {
+                margin: 1rem 2rem;
+                transition: 0.3s;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .mat-icon {
+                    color: forestgreen;
+                }
+
+                .span{
+                    margin-left: 0.5rem;
+                }
             }
         }
     }

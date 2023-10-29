@@ -16,6 +16,7 @@ import { InvoiceComponent } from './pages/invoice/invoice.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { ConfirmPaymentComponent } from './pages/confirm-payment/confirm-payment.component';
 import { HeaderComponent } from './navigations/header/header.component';
+import { PaymentSuccessfulComponent } from './dialogs/payment-successful/payment-successful.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HeaderComponent } from './navigations/header/header.component';
     InvoiceComponent,
     PaymentComponent,
     ConfirmPaymentComponent,
-    HeaderComponent
+    HeaderComponent,
+    PaymentSuccessfulComponent
   ],
   imports: [
     BrowserModule,

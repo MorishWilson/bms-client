@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { PaymentSuccessfulComponent } from 'src/app/dialogs/payment-successful/payment-successful.component';
 
 @Component({
 	selector: 'app-payment',
@@ -17,7 +19,8 @@ export class PaymentComponent {
 
 	constructor(
 		private fb: FormBuilder,
-		private http: HttpClient
+		private http: HttpClient,
+		private dialog: MatDialog
 	) {
 		this.paymentForm = this.fb.group({
 			cardNumber: ['', [Validators.required, Validators.pattern(/^\d{16}$/)]],
@@ -25,7 +28,7 @@ export class PaymentComponent {
 			cvv: ['', [Validators.required, Validators.pattern(/^\d{3}$/)]],
 		});
 	}
-	
+
 	ngOnInit() {
 		// Make an HTTP request to fetch the summary data
 		this.http.get(this.api_summary).subscribe((data: any) => {
@@ -43,8 +46,19 @@ export class PaymentComponent {
 
 	makePayment() {
 		if (this.paymentForm.valid) {
-			// Simulate a payment (you can add more complex logic here)
-			this.paymentSuccess = true;
+			// Open the dialog
+			const dialogRef = this.dialog.open(PaymentSuccessfulComponent, {
+				disableClose: true, // Prevent the user from closing the dialog
+				width: '400px'
+			});
+
+			// Automatically close the dialog after 5 seconds (no need to subscribe)
+			setTimeout(() => {
+				dialogRef.close();
+
+				// Simulate a payment (you can add more complex logic here)
+				this.paymentSuccess = true;
+			}, 5000);
 		}
 	}
 }

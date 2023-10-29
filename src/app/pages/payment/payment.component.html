@@ -5,7 +5,7 @@
             <mat-divider></mat-divider>
             <div class="row">
                 <div class="col-lg-12">
-                    <form class="form" [formGroup]="paymentForm" (ngSubmit)="makePayment()">
+                    <form class="form" [formGroup]="paymentForm">
                         <mat-form-field class="mat-form-field">
                             <mat-label>Card Number</mat-label>
                             <input type="number" matInput minlength="16" maxlength="16" formControlName="cardNumber"
@@ -31,11 +31,12 @@
             <mat-divider></mat-divider>
             <div class="row r2">
                 <div class="col-lg-12 r2c1">
-                    <button class="button" color="primary" type="submit" mat-raised-button>Pay</button>
-                    <h6 class="h6">Total Cost: Rs. {{totalCost}}</h6>
+                    <button class="button" *ngIf="!paymentSuccess" color="primary" type="submit" (click)="makePayment()" mat-raised-button>Pay</button>
                     <div *ngIf="paymentSuccess" class="success-message">
-                        Payment Successful!
+                        <mat-icon class="mat-icon">check_circle</mat-icon>
+                        <span class="span">Paid</span>
                     </div>
+                    <h6 class="h6">Total Cost: Rs. {{totalCost}}</h6>
                 </div>
             </div>
         </div>
