@@ -1,0 +1,29 @@
+.home {
+    .r1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .r1c1 {
+            border-left: 1px solid lightgray;
+            border-right: 1px solid lightgray;
+            border-bottom: 1px solid lightgray;
+            padding: 0;
+
+            .h2 {
+                padding: 1rem;
+            }
+        }
+    }
+
+    .r2 {
+        .r2c1 {
+
+            .button,
+            .p {
+                margin: 1rem;
+                padding: 1rem;
+            }
+        }
+    }
+}

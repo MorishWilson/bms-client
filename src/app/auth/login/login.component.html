@@ -6,12 +6,12 @@
                     <form class="login-form" [formGroup]="loginForm">
                         <mat-form-field class="mat-form-field">
                             <mat-label class="mat-label">Username</mat-label>
-                            <input class="input" type="text" matInput formControlName="email">
+                            <input class="input" type="text" matInput formControlName="username">
                             <mat-error class="mat-error"
-                                *ngIf="email?.hasError('email') && !email?.hasError('required')">
-                                Please enter a valid email
+                                *ngIf="username?.hasError('username') && !username?.hasError('required')">
+                                Please enter a valid username
                             </mat-error>
-                            <mat-error class="mat-error" *ngIf="email?.hasError('required')">
+                            <mat-error class="mat-error" *ngIf="username?.hasError('required')">
                                 Username is <strong>required</strong>
                             </mat-error>
                         </mat-form-field>
@@ -25,7 +25,7 @@
                         </mat-form-field>
 
                         <div class="button-group">
-                            <button class="mat-raised-button" type="submit" (click)="onSubmit()"
+                            <button class="mat-raised-button" color="primary" type="submit" (click)="onSubmit()"
                                 mat-raised-button>Login</button>
                         </div>
                     </form>

@@ -1,0 +1,34 @@
+<div class="container-fluid home">
+    <div class="row r1">
+        <div class="col-lg-8 r1c1">
+            <h2 class="h2">Select Products</h2>
+            <mat-divider></mat-divider>
+            <form class="form" [formGroup]="productForm" (ngSubmit)="submitProductSelection()">
+                <table class="table">
+                    <tr class="tr">
+                        <th class="th">Name</th>
+                        <th class="th">Price</th>
+                        <th class="th">Quantity</th>
+                    </tr>
+                    <tr class="tr" *ngFor="let product of products;">
+                        <td class="td">{{product.name}}</td>
+                        <td class="td">Rs. {{product.price}}</td>
+                        <td class="td" >
+                            <div class="quantity" >
+                                <mat-form-field class="mat-form-field">
+                                    <mat-label>Quantity</mat-label>
+                                    <input class="input" type="number" min="0" max="100" (input)="updateQuantity(product, $event)" [formControlName]="product.formControlName" matInput>
+                                </mat-form-field>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <!-- <mat-divider></mat-divider> -->
+                <div class="cart">
+                    <button class="button" color="primary" type="submit" mat-raised-button>Proceed to Order
+                        Summary</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
